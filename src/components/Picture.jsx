@@ -1,5 +1,5 @@
-export default function Picture({ src }) {
+export default function Picture({ link }) {
     return (
-        <img src={src.link} alt='Picture' className="picture" />
+        <img src={link} alt='Picture' width='100px' height='100px' className="picture" />
     )
 }

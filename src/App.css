@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    height: 1052.5px;
+    width: 743.75px;
+    border: 1px solid black;
+}
+
+/* Components */
+
+/* Columns */
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px black solid;
+    align-items: center;
+}
+
+.column > * {
+    border: 1px black solid;
+    width: 100%;
+    padding: 30px;
+}
+
+.picture {
+    border-radius: 100%;
+    width: 175px;
+    height: 175px;
+}
