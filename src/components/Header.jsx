@@ -1,8 +1,4 @@
-import { useState } from "react"
-
-export default function Header() {
-    const [name, setName] = useState('Ali Bugra');
-    const [job, setJob] = useState('Chef');
+export default function Header({ name, job }) {
     return (
         <div className="header">
             <h1>{name}</h1>

@@ -2,25 +2,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 10px;
 }
 
-.app {
+
+#root {
     display: flex;
     flex-direction: row;
-    gap: 50px;
-    height: 1052.5px;
-    width: 743.75px;
+    justify-content: space-around;
+}
+.app {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    max-width: 743.75px;
     border: 1px solid black;
 }
 
-/* Components */
+.edit-cv {
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.skill-label, .edu-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.deleteSkill, .deleteEdu {
+    color: darkred;
+}
 
 /* Columns */
 
 .column {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
     border: 1px black solid;
     align-items: center;
 }
@@ -35,4 +65,16 @@
     border-radius: 100%;
     width: 175px;
     height: 175px;
+    padding: 0;
+    margin: 15px;
+}
+
+/* Header */
+
+
+.header > h1 {
+    font-size: 5rem;
+}
+.header > h3 {
+    font-size: 2rem;
 }

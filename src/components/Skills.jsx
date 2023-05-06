@@ -1,15 +1,7 @@
 import { useState } from "react";
 
-export default function Skills() {
-    const exampleSkills = [
-        'Cocksucker',
-        'Distraction',
-        'Dickrider',
-        'Huge asshole'
-    ];
+export default function Skills({ skills }) {
     let i = 0;
-    
-    const [skills, setSkills] = useState(exampleSkills);
 
     return (
         <div>
