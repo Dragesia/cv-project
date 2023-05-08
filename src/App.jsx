@@ -161,6 +161,90 @@ function CV() {
     setEducations(newEducations);
   }
 
+  function expHandleNameChange(e, index) {
+    const newExps = exps.map((exp, i) => {
+      if (index === i) {
+        return {
+          ...exp,
+          name: e.target.value
+        } 
+      } else return exp;
+    });
+    setExps(newExps);
+  }
+  function expHandleFromChange(e, index) {
+    const newExps = exps.map((exp, i) => {
+      if (index === i) {
+        return {
+          ...exp,
+          from: e.target.value
+        } 
+      } else return exp;
+    });
+    setExps(newExps);
+  }
+  function expHandleToChange(e, index) {
+    const newExps = exps.map((exp, i) => {
+      if (index === i) {
+        return {
+          ...exp,
+          to: e.target.value
+        } 
+      } else return exp;
+    });
+    setExps(newExps);
+  }
+  function expHandleDescChange(e, index) {
+    const newExps = exps.map((exp, i) => {
+      if (index === i) {
+        return {
+          ...exp,
+          description: e.target.value
+        } 
+      } else return exp;
+    });
+    setExps(newExps);
+  }
+  function handleExpDelete(exp) {
+    const newExps = exps.filter(e => e !== exp);
+    setExps(newExps);
+  }
+  function handleExpAdd() {
+    const newExps = [...exps, {name: '', from: '', to: '', description: ''}];
+    setExps(newExps);
+  }
+
+  function refHandleNameChange(e, index) {
+    const newRefs = refs.map((ref, i) => {
+      if (index === i) {
+        return {
+          ...ref,
+          name: e.target.value
+        }
+      } else return ref;
+    });
+    setRefs(newRefs);
+  }
+  function refHandleDescChange(e, index) {
+    const newRefs = refs.map((ref, i) => {
+      if (index === i) {
+        return {
+          ...ref,
+          description: e.target.value
+        }
+      } else return ref;
+    });
+    setRefs(newRefs);
+  }
+  function handleRefDelete(ref) {
+    const newRefs = refs.filter(r => r !== ref);
+    setRefs(newRefs);
+  }
+  function handleRefAdd() {
+    const newRefs = [...refs, {name: '', description: ''}];
+    setRefs(newRefs);
+  }
+
   return (
     <>
       <div className="edit-cv">
@@ -208,6 +292,44 @@ function CV() {
                   <input name='to' type="text" value={education.to} onChange={(e) => eduHandleToChange(e, i)}/>
                 </label>
                 <button className='deleteEdu' onClick={() => handleEducationDelete(education)}>x</button>
+              </div>
+            )
+          })}
+        </div>
+        <label htmlFor="experience" className='exp-label'>Experience <button onClick={handleExpAdd}>+</button></label>
+        <div className="experience" name='experience'>
+          {exps.map((experience, i) => {
+            return (
+              <div className="experience-cont" key={i}>
+                <label htmlFor="name">Name
+                  <input type="text" name='name' value={experience.name} onChange={(e) => expHandleNameChange(e, i)}/>
+                </label>
+                <label htmlFor="from">From
+                  <input type="text" name='from' value={experience.from} onChange={(e) => expHandleFromChange(e, i)}/>
+                </label>
+                <label htmlFor="to">To
+                  <input type="text" name='to' value={experience.to} onChange={(e) => expHandleToChange(e, i)}/>
+                </label>
+                <label htmlFor="description">Description
+                  <input type="text" name='description' value={experience.description} onChange={(e) => expHandleDescChange(e, i)}/>
+                </label>
+                <button className='deleteExp' onClick={() => handleExpDelete(experience)}>x</button>
+              </div>
+            )
+          })}
+        </div>
+        <label htmlFor="references" className='ref-label'>References <button onClick={handleRefAdd}>+</button></label>
+        <div className="reference" name='reference'>
+          {refs.map((ref, i) => {
+            return (
+              <div className="reference-cont" key={i}>
+                <label htmlFor="name">Name
+                  <input type="text" name='name' value={ref.name} onChange={(e) => refHandleNameChange(e, i)}/>
+                </label>
+                <label htmlFor="description">Description
+                  <input type="text" name='description' value={ref.description} onChange={(e) => refHandleDescChange(e, i)}/>
+                </label>
+                <button className='deleteRef' onClick={() => handleRefDelete(ref)}>x</button>
               </div>
             )
           })}

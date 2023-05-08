@@ -35,7 +35,7 @@
     flex-direction: row;
     justify-content: space-between;
 }
-.skill-label, .edu-label {
+.skill-label, .edu-label, .exp-label, .ref-label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -44,6 +44,7 @@
 .deleteSkill, .deleteEdu {
     color: darkred;
 }
+
 
 /* Columns */
 
