@@ -1,16 +1,16 @@
 export default function Education({ educations }) {
     let i = 0;
     return (
-        <div>
-            <h1>EDUCATION</h1>
-            <div className="educations">
+        <div className="educations">
+            <h1>Education</h1>
+            <div className="educations-cont">
                 {
                     educations.map(education => {
                         return (
                             <div className="education" key={i++}>
-                                <h2>{education.name}</h2>
-                                <h4>{education.type}</h4>
-                                <h4>({education.from} - {education.to})</h4>
+                                <h2 className="year">{education.year}</h2>
+                                <h4 className="type">{education.type}</h4>
+                                <h4 className="name">{education.name}</h4>
                             </div>
                         )
                     })

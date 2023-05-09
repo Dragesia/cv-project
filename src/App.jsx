@@ -12,71 +12,59 @@ import References from './components/References'
 function CV() {
   const exampleEducation = [
     {
-        name: 'Sirripasa Ilkogretim Okulu',
-        type: 'Ilkokul',
-        from: '2009',
-        to: '2013'
+        name: 'University/College',
+        type: 'Enter your degree',
+        year: '2008'
     },
     {
-        name: 'Sirripasa Ortaokulu',
-        type: 'Ortaokul',
-        from: '2013',
-        to: '2017'
-    },
-    {
-        name: 'Merkez Bankasi Derince Anadolu Lisesi',
-        type: 'Lise',
-        from: '2017',
-        to: '2021'
-    },
-    {
-        name: 'Sakarya Universitesi',
-        type: 'Lisans',
-        from: '2021',
-        to: 'Today'
+        name: 'University/College',
+        type: 'Enter your degree',
+        year: '2012'
     }
   ]
   const exampleExps = [
     {
-        name: 'Antik Kapi',
-        from: '2015',
-        to: 'Today',
-        description: 'Best job ever'
+        name: 'Company name',
+        from: '2019',
+        to: '2022',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat diam in elit sollicitudin, sed pellentesque mi laoreet. Nulla viverra mi sed congue ornare. Pellentesque imperdiet pulvinar euismod.'
     },
     {
-        name: 'Adabahce',
-        from: '2013',
-        to: '2015',
-        description: 'Not best job ever'
+        name: 'Company name',
+        from: '2017',
+        to: '2019',
+        description: 'Suspendisse condimentum libero nisl. Nullam consectetur dui pretium nisl facilisis, sed auctor libero blandit. Sed hendrerit ut libero at bibendum. Sed laoreet nisi vitae rutrum placerat. Ut sit amet facilisis nisi. Nam a hendrerit lectus. '
     }
   ]
   const exampleRefs = [
     {
-        name: 'Burak Koc',
-        description: 'Ondan nasil lol oynamayacagimi ogrendim'
+        name: 'Name Surname',
+        description: 'Company name, Contact'
     },
     {
-        name: 'Eray Ozkan',
-        description: 'Tam bir o cocugudur kendisi'
+        name: 'Name Surname',
+        description: 'Company name, Contact'
     }
   ]
   const exampleSkills = [
-    'Cocksucker',
-    'Distraction',
-    'Dickrider',
-    'Huge asshole'
+    'UI/UX',
+    'Visual Design',
+    'Wireframes',
+    'Storyboards',
+    'User Flows',
+    'Process Flows'
   ]
 
   const [skills, setSkills] = useState(exampleSkills);
   const [refs, setRefs] = useState(exampleRefs);
-  const [description, setDescription] = useState('I work at worlds biggest restaurant, ANTIKKAPI');
-  const [name, setName] = useState('Ali Bugra');
-  const [job, setJob] = useState('Chef');
+  const [description, setDescription] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat diam in elit sollicitudin, sed pellentesque mi laoreet. Nulla viverra mi sed congue ornare. Pellentesque imperdiet pulvinar euismod. Suspendisse condimentum libero nisl. Nullam consectetur dui pretium nisl facilisis, sed auctor libero blandit. Sed hendrerit ut libero at bibendum. Sed laoreet nisi vitae rutrum placerat. Ut sit amet facilisis nisi. Nam a hendrerit lectus. Mauris eu lectus porta, vehicula ex eu, ultrices eros. Proin porttitor eu urna eget malesuada. Mauris commodo enim quis tortor dignissim tincidunt vel a lectus. Sed eget consequat magna.');
+  const [name, setName] = useState('Mary Anderson');
+  const [job, setJob] = useState('Marketing Manager');
   const [exps, setExps] = useState(exampleExps);
   const [educations, setEducations] = useState(exampleEducation);
-  const [mail, setMail] = useState('alibugraeroglu@gmail.com');
-  const [phone, setPhone] = useState('0553 903 2925');
-  const [imgLink, setImgLink] = useState('https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png');
+  const [mail, setMail] = useState('hello@reallygreatsite.com');
+  const [phone, setPhone] = useState('123-456-789');
+  const [imgLink, setImgLink] = useState('https://api.curtisbrown.co.uk/media/85134/show/square');
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -130,23 +118,12 @@ function CV() {
     });
     setEducations(newEducations);
   }
-  function eduHandleFromChange(e, index) {
+  function eduHandleYearChange(e, index) {
     const newEducations = educations.map((edu, i) => {
       if (index === i) {
         return {
           ...edu,
-          from: e.target.value
-        }
-      } else return edu;
-    });
-    setEducations(newEducations);
-  }
-  function eduHandleToChange(e, index) {
-    const newEducations = educations.map((edu, i) => {
-      if (index === i) {
-        return {
-          ...edu,
-          to: e.target.value
+          year: e.target.value
         }
       } else return edu;
     });
@@ -285,11 +262,8 @@ function CV() {
                 <label htmlFor="type">Type 
                   <input name='type' type="text" value={education.type} onChange={(e) => eduHandleTypeChange(e, i)}/>
                 </label>
-                <label htmlFor="from">From 
-                  <input name='from' type="text" value={education.from} onChange={(e) => eduHandleFromChange(e, i)}/>
-                </label>
-                <label htmlFor="to">To 
-                  <input name='to' type="text" value={education.to} onChange={(e) => eduHandleToChange(e, i)}/>
+                <label htmlFor="year">Year 
+                  <input name='year' type="text" value={education.year} onChange={(e) => eduHandleYearChange(e, i)}/>
                 </label>
                 <button className='deleteEdu' onClick={() => handleEducationDelete(education)}>x</button>
               </div>

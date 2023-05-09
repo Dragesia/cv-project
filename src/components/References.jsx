@@ -1,8 +1,8 @@
 export default function References({ refs }) {
     let i = 0;
     return (
-        <div>
-            <h1>REFERENCES</h1>
+        <div className="references">
+            <h1>References</h1>
             <div className="refs">
                 {
                     refs.map(ref => {

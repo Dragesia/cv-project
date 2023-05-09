@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Open Sans');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 10px;
+    font-family: 'Open Sans';
 }
 
 
@@ -45,6 +48,166 @@
     color: darkred;
 }
 
+/* CV Editor */
+
+/* CV */
+
+/* Header */
+
+.header {
+    margin-top: 25px;
+}
+
+.header > p {
+    color: rgb(47, 59, 83);
+    font-size: 5rem;
+    font-weight: bolder;
+}
+.header > h3 {
+    color: rgb(47, 59, 83);
+    font-size: 2.5rem;
+    font-weight: lighter;
+    position: relative;
+    bottom: 8px;
+}
+
+/* Contact */
+
+.contact > h1 {
+    font-size: 2.5rem;
+    border-bottom: 1px solid white;
+    margin-bottom: 8px;
+}
+
+.contact h6 {
+    font-size: 1.2rem;
+}
+
+.contact p {
+    font-size: 1.1rem;
+}
+
+.contact > div {
+    margin: 12px 0 12px 0;
+}
+
+/* Skills */
+
+.skills > h1 {
+    font-size: 2.5rem;
+    border-bottom: 1px solid white;
+    margin-bottom: 8px;
+}
+
+.skills > ul {
+    list-style: none;
+}
+
+.skills li:before {
+    content:"•     ";
+    padding-right: 8px;
+}
+
+.skills li {
+    font-size: 1.1rem;
+    margin: 12px 0 12px 0; 
+}
+
+/* Education */
+
+.educations > h1 {
+    font-size: 2.5rem;
+    border-bottom: 1px solid white;
+    margin-bottom: 8px;
+}
+
+.education {
+    margin: 12px 0 12px 0; 
+}
+
+.education > h2 {
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.education > .type {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.education > .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Profile */
+
+.profile > h1 {
+    color: rgb(47, 59, 83);
+    font-size: 2.5rem;
+    border-bottom: 1px solid rgb(47, 59, 83);
+    margin-bottom: 8px;
+}
+
+.profile > p {
+    font-size: 1.1rem;
+    color: rgb(47, 59, 83);
+}
+
+/* Experience */
+
+.experience > h1 {
+    color: rgb(47, 59, 83);
+    font-size: 2.5rem;
+    border-bottom: 1px solid rgb(47, 59, 83);
+    margin-bottom: 8px;
+}
+
+.experience > div {
+    margin: 16px 0 16px 0;
+}
+
+.experience h3 {
+    color: rgb(47, 59, 83);
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.experience h2 {
+    color: rgb(47, 59, 83);
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.experience p {
+    color: rgb(47, 59, 83);
+    font-size: 1.1rem;
+}
+
+/* References */
+
+.references > h1 {
+    color: rgb(47, 59, 83);
+    font-size: 2.5rem;
+    border-bottom: 1px solid rgb(47, 59, 83);
+    margin-bottom: 8px;
+}
+
+.refs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.ref > h2 {
+    color: rgb(47, 59, 83);
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.ref > p {
+    color: rgb(47, 59, 83);
+    font-size: 1.1rem;
+}
 
 /* Columns */
 
@@ -52,14 +215,12 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    border: 1px black solid;
     align-items: center;
 }
 
 .column > * {
-    border: 1px black solid;
     width: 100%;
-    padding: 30px;
+    padding: 15px 30px 15px 30px;
 }
 
 .picture {
@@ -70,12 +231,7 @@
     margin: 15px;
 }
 
-/* Header */
-
-
-.header > h1 {
-    font-size: 5rem;
-}
-.header > h3 {
-    font-size: 2rem;
+.left {
+    background-color: rgb(50, 59, 76);
+    color: white;
 }
