@@ -224,103 +224,110 @@ function CV() {
 
   return (
     <>
-      <div className="edit-cv">
-        <label htmlFor="name">Full name</label>
-        <input type="text" name='name' value={name} onChange={handleNameChange}/>
-        <label htmlFor="job">Job</label>
-        <input type="text" name='job' value={job} onChange={handleJobChange}/>
-        <label htmlFor="picture">Upload image</label>
-        <input accept='image/' type="file" name="picture" id="picture" onChange={(e) => {
-            let src = getSRC(e);
-            setImgLink(src);
-          }}/>
-        <label htmlFor="mail">Mail</label>
-        <input type="text" name='mail' value={mail} onChange={handleMailChange}/>
-        <label htmlFor="phone">Phone</label>
-        <input type="tel" name='phone' value={phone} pattern='^[0-9]*$' onChange={handlePhoneChange}/>
-        <label htmlFor="profile">Profile</label>
-        <textarea rows='5' name='profile' value={description} onChange={handleProfileChange}/>
-        <label htmlFor="skills" className='skill-label'>Skills <button onClick={handleSkillAdd}>Add Skill</button></label>
-        <div name='skills' className='edit-skills'>
-          {skills.map((skill, i) => {
-            return (
-            <div className="skill-cont" key={i}>
-              <input type='text' value={skill} onChange={(e) => handleSkillChange(e, i)}/>
-              <button className='delete' onClick={() => handleSkillDelete(skill)}>x</button>
-            </div>
-            )
-          })}
-        </div>
-        <label htmlFor="educations" className='edu-label'>Education <button onClick={handleEducationAdd}>Add Education</button></label>
-        <div className="educations" name='educations'>
-          {educations.map((education, i) => {
-            return (
-              <div className="education-cont" key={i}>
-                <label htmlFor="name">Name 
-                  <input name='name' type="text" value={education.name} onChange={(e) => eduHandleNameChange(e, i)}/>
-                </label>
-                <label htmlFor="type">Type 
-                  <input name='type' type="text" value={education.type} onChange={(e) => eduHandleTypeChange(e, i)}/>
-                </label>
-                <label htmlFor="year">Year 
-                  <input className='number' name='year' type="text" value={education.year} onChange={(e) => eduHandleYearChange(e, i)}/>
-                </label>
-                <button className='delete' onClick={() => handleEducationDelete(education)}>x</button>
+      <header>
+        <i>
+          RESUMEAKER
+        </i>
+      </header>
+      <div className='container'>
+        <div className="edit-cv">
+          <label htmlFor="name">Full name</label>
+          <input type="text" name='name' value={name} onChange={handleNameChange}/>
+          <label htmlFor="job">Job</label>
+          <input type="text" name='job' value={job} onChange={handleJobChange}/>
+          <label htmlFor="picture">Upload image</label>
+          <input accept='image/' type="file" name="picture" id="picture" onChange={(e) => {
+              let src = getSRC(e);
+              setImgLink(src);
+            }}/>
+          <label htmlFor="mail">Mail</label>
+          <input type="text" name='mail' value={mail} onChange={handleMailChange}/>
+          <label htmlFor="phone">Phone</label>
+          <input type="tel" name='phone' value={phone} pattern='^[0-9]*$' onChange={handlePhoneChange}/>
+          <label htmlFor="profile">Profile</label>
+          <textarea rows='5' name='profile' value={description} onChange={handleProfileChange}/>
+          <label htmlFor="skills" className='skill-label'>Skills <button onClick={handleSkillAdd}>Add Skill</button></label>
+          <div name='skills' className='edit-skills'>
+            {skills.map((skill, i) => {
+              return (
+              <div className="skill-cont" key={i}>
+                <input type='text' value={skill} onChange={(e) => handleSkillChange(e, i)}/>
+                <button className='delete' onClick={() => handleSkillDelete(skill)}>x</button>
               </div>
-            )
-          })}
+              )
+            })}
+          </div>
+          <label htmlFor="educations" className='edu-label'>Education <button onClick={handleEducationAdd}>Add Education</button></label>
+          <div className="educations" name='educations'>
+            {educations.map((education, i) => {
+              return (
+                <div className="education-cont" key={i}>
+                  <label htmlFor="name">Name&nbsp;
+                    <input name='name' type="text" value={education.name} onChange={(e) => eduHandleNameChange(e, i)}/>
+                  </label>
+                  <label htmlFor="type">Type&nbsp; 
+                    <input name='type' type="text" value={education.type} onChange={(e) => eduHandleTypeChange(e, i)}/>
+                  </label>
+                  <label htmlFor="year">Year&nbsp; 
+                    <input className='number' name='year' type="text" value={education.year} onChange={(e) => eduHandleYearChange(e, i)}/>
+                  </label>
+                  <button className='delete' onClick={() => handleEducationDelete(education)}>x</button>
+                </div>
+              )
+            })}
+          </div>
+          <label htmlFor="experience" className='exp-label'>Experience <button onClick={handleExpAdd}>Add Experience</button></label>
+          <div className="edit-experience" name='experience'>
+            {exps.map((experience, i) => {
+              return (
+                <div className="experience-cont" key={i}>
+                  <label htmlFor="name">Name&nbsp;
+                    <input type="text" name='name' value={experience.name} onChange={(e) => expHandleNameChange(e, i)}/>
+                  </label>
+                  <label htmlFor="from">From&nbsp;
+                    <input className='number' type="text" name='from' value={experience.from} onChange={(e) => expHandleFromChange(e, i)}/>
+                  </label>
+                  <label htmlFor="to">To&nbsp;
+                    <input className='number' type="text" name='to' value={experience.to} onChange={(e) => expHandleToChange(e, i)}/>
+                  </label>
+                  <label htmlFor="description">Description&nbsp;
+                    <input type="text" name='description' value={experience.description} onChange={(e) => expHandleDescChange(e, i)}/>
+                  </label>
+                  <button className='delete' onClick={() => handleExpDelete(experience)}>x</button>
+                </div>
+              )
+            })}
+          </div>
+          <label htmlFor="references" className='ref-label'>References <button onClick={handleRefAdd}>Add Reference</button></label>
+          <div className="reference" name='reference'>
+            {refs.map((ref, i) => {
+              return (
+                <div className="reference-cont" key={i}>
+                  <label htmlFor="name">Name&nbsp;
+                    <input type="text" name='name' value={ref.name} onChange={(e) => refHandleNameChange(e, i)}/>
+                  </label>
+                  <label htmlFor="description">Description&nbsp;
+                    <input type="text" name='description' value={ref.description} onChange={(e) => refHandleDescChange(e, i)}/>
+                  </label>
+                  <button className='delete' onClick={() => handleRefDelete(ref)}>x</button>
+                </div>
+              )
+            })}
+          </div>
         </div>
-        <label htmlFor="experience" className='exp-label'>Experience <button onClick={handleExpAdd}>Add Experience</button></label>
-        <div className="edit-experience" name='experience'>
-          {exps.map((experience, i) => {
-            return (
-              <div className="experience-cont" key={i}>
-                <label htmlFor="name">Name
-                  <input type="text" name='name' value={experience.name} onChange={(e) => expHandleNameChange(e, i)}/>
-                </label>
-                <label htmlFor="from">From
-                  <input className='number' type="text" name='from' value={experience.from} onChange={(e) => expHandleFromChange(e, i)}/>
-                </label>
-                <label htmlFor="to">To
-                  <input className='number' type="text" name='to' value={experience.to} onChange={(e) => expHandleToChange(e, i)}/>
-                </label>
-                <label htmlFor="description">Description
-                  <input type="text" name='description' value={experience.description} onChange={(e) => expHandleDescChange(e, i)}/>
-                </label>
-                <button className='delete' onClick={() => handleExpDelete(experience)}>x</button>
-              </div>
-            )
-          })}
-        </div>
-        <label htmlFor="references" className='ref-label'>References <button onClick={handleRefAdd}>Add Reference</button></label>
-        <div className="reference" name='reference'>
-          {refs.map((ref, i) => {
-            return (
-              <div className="reference-cont" key={i}>
-                <label htmlFor="name">Name
-                  <input type="text" name='name' value={ref.name} onChange={(e) => refHandleNameChange(e, i)}/>
-                </label>
-                <label htmlFor="description">Description
-                  <input type="text" name='description' value={ref.description} onChange={(e) => refHandleDescChange(e, i)}/>
-                </label>
-                <button className='delete' onClick={() => handleRefDelete(ref)}>x</button>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-      <div className='app'>
-        <div className='left column'>
-          <Picture link={imgLink}/>
-          <Contact mail={mail} phone={phone} />
-          <Skills skills={skills}/>
-          <Education educations={educations}/>
-        </div>
-        <div className='right column'>
-          <Header name={name} job={job}/>
-          <Profile description={description}/>
-          <Experience exps={exps}/>
-          <References refs={refs}/>
+        <div className='app'>
+          <div className='left column'>
+            <Picture link={imgLink}/>
+            <Contact mail={mail} phone={phone} />
+            <Skills skills={skills}/>
+            <Education educations={educations}/>
+          </div>
+          <div className='right column'>
+            <Header name={name} job={job}/>
+            <Profile description={description}/>
+            <Experience exps={exps}/>
+            <References refs={refs}/>
+          </div>
         </div>
       </div>
     </>

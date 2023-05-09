@@ -8,34 +8,57 @@
     font-family: 'Open Sans';
 }
 
-
 #root {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-.app {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    max-width: 743.75px;
-    border: 1px solid black;
+    margin-bottom: 50px;
+    align-items: flex-start;
 }
 
 .edit-skills {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
 }
 
 .skill-cont {
     display: flex;
     flex-direction: row;
+}
 
+.skill-cont > input {
+    width: 19.7rem;
 }
 .skill-label, .edu-label, .exp-label, .ref-label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
+/* Header */
+
+header {
+    background-color: rgb(47, 59, 83);
+    ;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header > i {
+    font-size: 4rem;
+    color: white;
+    font-weight: bolder;
+    margin-left: 110px;
+}   
 
 /* CV Editor */
 
@@ -44,10 +67,13 @@
     display: flex;
     flex-direction: column;
     padding: 3rem;
+    position: sticky;
+    top: 20px;
 }
 
 .edit-cv > label {
     font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 .edit-cv input {
@@ -61,6 +87,7 @@
     padding-left: 0.5rem;
     font-size: 1.4rem;
     margin: 0.2rem 0 1.2rem 0;
+    resize: none;
 }
 
 .edit-cv button {
@@ -76,7 +103,7 @@
     outline: 0;
     border-radius: 5px;
     height: 2rem;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     position: relative;
     top: 1px;
     cursor: pointer;
@@ -85,8 +112,55 @@
 .number {
     width: 4.7rem;
 }
+.education-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.education-cont input[name='name'] {
+    width: 35rem;
+}
+input[name='type'] {
+    width: 13.5rem;
+}
 
+.education-cont > label {
+    font-size: 1.3rem;
+}
+
+.experience-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.experience-cont > label {
+    font-size: 1.3rem;
+}
+
+.reference-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.reference-cont input[name='description'] {
+    width: 35rem;
+}
+
+.reference-cont > label {
+    font-size: 1.3rem;
+}
 /* CV */
+
+.app {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 1052.5px;
+    width: 743.75px;
+    border: 1px solid black;
+    position: sticky;
+    top: 20px;
+}
 
 /* Header */
 
@@ -264,7 +338,7 @@
     width: 175px;
     height: 175px;
     padding: 0;
-    margin: 15px;
+    margin: 35px 15px 15px 15px;
 }
 
 .left {
