@@ -240,18 +240,18 @@ function CV() {
         <input type="tel" name='phone' value={phone} pattern='^[0-9]*$' onChange={handlePhoneChange}/>
         <label htmlFor="profile">Profile</label>
         <textarea rows='5' name='profile' value={description} onChange={handleProfileChange}/>
-        <label htmlFor="skills" className='skill-label'>Skills <button onClick={handleSkillAdd}>+</button></label>
-        <div name='skills' className='skills'>
+        <label htmlFor="skills" className='skill-label'>Skills <button onClick={handleSkillAdd}>Add Skill</button></label>
+        <div name='skills' className='edit-skills'>
           {skills.map((skill, i) => {
             return (
             <div className="skill-cont" key={i}>
               <input type='text' value={skill} onChange={(e) => handleSkillChange(e, i)}/>
-              <button className='deleteSkill' onClick={() => handleSkillDelete(skill)}>x</button>
+              <button className='delete' onClick={() => handleSkillDelete(skill)}>x</button>
             </div>
             )
           })}
         </div>
-        <label htmlFor="educations" className='edu-label'>Education <button onClick={handleEducationAdd}>+</button></label>
+        <label htmlFor="educations" className='edu-label'>Education <button onClick={handleEducationAdd}>Add Education</button></label>
         <div className="educations" name='educations'>
           {educations.map((education, i) => {
             return (
@@ -263,15 +263,15 @@ function CV() {
                   <input name='type' type="text" value={education.type} onChange={(e) => eduHandleTypeChange(e, i)}/>
                 </label>
                 <label htmlFor="year">Year 
-                  <input name='year' type="text" value={education.year} onChange={(e) => eduHandleYearChange(e, i)}/>
+                  <input className='number' name='year' type="text" value={education.year} onChange={(e) => eduHandleYearChange(e, i)}/>
                 </label>
-                <button className='deleteEdu' onClick={() => handleEducationDelete(education)}>x</button>
+                <button className='delete' onClick={() => handleEducationDelete(education)}>x</button>
               </div>
             )
           })}
         </div>
-        <label htmlFor="experience" className='exp-label'>Experience <button onClick={handleExpAdd}>+</button></label>
-        <div className="experience" name='experience'>
+        <label htmlFor="experience" className='exp-label'>Experience <button onClick={handleExpAdd}>Add Experience</button></label>
+        <div className="edit-experience" name='experience'>
           {exps.map((experience, i) => {
             return (
               <div className="experience-cont" key={i}>
@@ -279,20 +279,20 @@ function CV() {
                   <input type="text" name='name' value={experience.name} onChange={(e) => expHandleNameChange(e, i)}/>
                 </label>
                 <label htmlFor="from">From
-                  <input type="text" name='from' value={experience.from} onChange={(e) => expHandleFromChange(e, i)}/>
+                  <input className='number' type="text" name='from' value={experience.from} onChange={(e) => expHandleFromChange(e, i)}/>
                 </label>
                 <label htmlFor="to">To
-                  <input type="text" name='to' value={experience.to} onChange={(e) => expHandleToChange(e, i)}/>
+                  <input className='number' type="text" name='to' value={experience.to} onChange={(e) => expHandleToChange(e, i)}/>
                 </label>
                 <label htmlFor="description">Description
                   <input type="text" name='description' value={experience.description} onChange={(e) => expHandleDescChange(e, i)}/>
                 </label>
-                <button className='deleteExp' onClick={() => handleExpDelete(experience)}>x</button>
+                <button className='delete' onClick={() => handleExpDelete(experience)}>x</button>
               </div>
             )
           })}
         </div>
-        <label htmlFor="references" className='ref-label'>References <button onClick={handleRefAdd}>+</button></label>
+        <label htmlFor="references" className='ref-label'>References <button onClick={handleRefAdd}>Add Reference</button></label>
         <div className="reference" name='reference'>
           {refs.map((ref, i) => {
             return (
@@ -303,7 +303,7 @@ function CV() {
                 <label htmlFor="description">Description
                   <input type="text" name='description' value={ref.description} onChange={(e) => refHandleDescChange(e, i)}/>
                 </label>
-                <button className='deleteRef' onClick={() => handleRefDelete(ref)}>x</button>
+                <button className='delete' onClick={() => handleRefDelete(ref)}>x</button>
               </div>
             )
           })}
