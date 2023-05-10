@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Contact from './components/Contact.jsx'
@@ -8,6 +8,7 @@ import Picture from './components/Picture'
 import Experience from './components/Experience'
 import Education from './components/Education'
 import References from './components/References'
+import ReactToPrint, { useReactToPrint } from 'react-to-print'
 
 function CV() {
   const exampleEducation = [
@@ -315,22 +316,28 @@ function CV() {
             })}
           </div>
         </div>
-        <div className='app'>
-          <div className='left column'>
-            <Picture link={imgLink}/>
-            <Contact mail={mail} phone={phone} />
-            <Skills skills={skills}/>
-            <Education educations={educations}/>
-          </div>
-          <div className='right column'>
-            <Header name={name} job={job}/>
-            <Profile description={description}/>
-            <Experience exps={exps}/>
-            <References refs={refs}/>
-          </div>
-        </div>
+        <GeneratePDF {...{imgLink, mail, phone, skills, educations, name, job, description, exps, refs}} />
       </div>
     </>
+  )
+}
+
+function Result({ imgLink, mail, phone, skills, educations, name, job, description, exps, refs}) {
+  return (
+    <div className='app'>
+      <div className='left column'>
+        <Picture imgLink={imgLink}/>
+        <Contact mail={mail} phone={phone} />
+        <Skills skills={skills}/>
+        <Education educations={educations}/>
+      </div>
+      <div className='right column'>
+        <Header name={name} job={job}/>
+        <Profile description={description}/>
+        <Experience exps={exps}/>
+        <References refs={refs}/>
+      </div>
+    </div>
   )
 }
 
@@ -342,6 +349,22 @@ function App() {
 
 function getSRC(e) {
   return URL.createObjectURL(e.target.files[0]);
+}
+
+function GeneratePDF({ imgLink, mail, phone, skills, educations, name, job, description, exps, refs }) {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+  return (
+    <div>
+      <div ref={componentRef}>
+        <Result {...{imgLink, mail, phone, skills, educations, name, job, description, exps, refs}}/>
+      </div>
+      <button onClick={handlePrint}>Generate PDF</button>
+    </div>
+  );
 }
 
 export default App

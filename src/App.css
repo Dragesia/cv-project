@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+    background-color: #cccccc;
 }
 
 .container {
@@ -63,12 +64,14 @@ header > i {
 /* CV Editor */
 
 .edit-cv {
-    border: 1px black solid;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     padding: 3rem;
     position: sticky;
     top: 20px;
+    background-color: #eeeeee;
+    box-shadow: 3px 3px 15px gray;
 }
 
 .edit-cv > label {
@@ -155,11 +158,12 @@ input[name='type'] {
 .app {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 1052.5px;
-    width: 743.75px;
-    border: 1px solid black;
+    height: 1315.5px;
+    width: 930px;
     position: sticky;
     top: 20px;
+    background-color: white;
+    box-shadow: 3px 3px 15px gray;
 }
 
 /* Header */
@@ -306,6 +310,7 @@ input[name='type'] {
 .refs {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10px;
 }
 
 .ref > h2 {
