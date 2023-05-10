@@ -153,6 +153,7 @@ input[name='type'] {
 .reference-cont > label {
     font-size: 1.3rem;
 }
+
 /* CV */
 
 .app {
@@ -194,11 +195,11 @@ input[name='type'] {
 }
 
 .contact h6 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .contact p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .contact > div {
@@ -223,7 +224,7 @@ input[name='type'] {
 }
 
 .skills li {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin: 12px 0 12px 0; 
 }
 
@@ -240,17 +241,17 @@ input[name='type'] {
 }
 
 .education > h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: lighter;
 }
 
 .education > .type {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bolder;
 }
 
 .education > .name {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
@@ -264,7 +265,7 @@ input[name='type'] {
 }
 
 .profile > p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: rgb(47, 59, 83);
 }
 
@@ -283,19 +284,19 @@ input[name='type'] {
 
 .experience h3 {
     color: rgb(47, 59, 83);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: lighter;
 }
 
 .experience h2 {
     color: rgb(47, 59, 83);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bolder;
 }
 
 .experience p {
     color: rgb(47, 59, 83);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 /* References */
@@ -315,13 +316,13 @@ input[name='type'] {
 
 .ref > h2 {
     color: rgb(47, 59, 83);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bolder;
 }
 
 .ref > p {
     color: rgb(47, 59, 83);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 /* Columns */
@@ -349,4 +350,19 @@ input[name='type'] {
 .left {
     background-color: rgb(50, 59, 76);
     color: white;
+}
+
+.generate-button {
+    color: white;
+    font-size: 2rem;
+    background-color: darkgreen;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.generate-button:active {
+    background-color: rgb(0, 70, 0);
+    cursor: pointer;
 }

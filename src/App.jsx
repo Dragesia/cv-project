@@ -66,6 +66,10 @@ function CV() {
   const [mail, setMail] = useState('hello@reallygreatsite.com');
   const [phone, setPhone] = useState('123-456-789');
   const [imgLink, setImgLink] = useState('https://api.curtisbrown.co.uk/media/85134/show/square');
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -315,8 +319,11 @@ function CV() {
               )
             })}
           </div>
+          <button className='generate-button' onClick={handlePrint}>Generate PDF</button>
         </div>
-        <GeneratePDF {...{imgLink, mail, phone, skills, educations, name, job, description, exps, refs}} />
+        <div ref={componentRef}>
+          <Result {...{imgLink, mail, phone, skills, educations, name, job, description, exps, refs}}/>
+        </div>
       </div>
     </>
   )
@@ -349,22 +356,6 @@ function App() {
 
 function getSRC(e) {
   return URL.createObjectURL(e.target.files[0]);
-}
-
-function GeneratePDF({ imgLink, mail, phone, skills, educations, name, job, description, exps, refs }) {
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
-
-  return (
-    <div>
-      <div ref={componentRef}>
-        <Result {...{imgLink, mail, phone, skills, educations, name, job, description, exps, refs}}/>
-      </div>
-      <button onClick={handlePrint}>Generate PDF</button>
-    </div>
-  );
 }
 
 export default App
